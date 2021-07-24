@@ -1,0 +1,57 @@
+﻿
+
+@model IEnumerable<OderApplication.Models.Driver>
+
+<div class="container p-3">
+    <div class="row pt-3">
+        <div class="col-6 ">
+            <h2 class="col-6 text-primary">Driver List </h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Driver" asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i> Add Driver</a>
+        </div>
+
+        @if (Model.Count() > 0)
+        {
+
+            <table class="table table-bordered table-striped " style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Changes</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var objec in Model)
+                    {
+                        <tr>
+                            <td>@objec.Name</td>
+                           
+                            <td class="text-center">
+                                <div class="w-75 btn-group" role="group">
+                                    <a asp-area="" asp-controller="Driver" asp-action="Edit" asp-route-Id="@objec.Id" class="btn btn-success mx-2"><i class="fas fa-edit"></i></a>
+                                    <a asp-area="" asp-controller="Driver" asp-action="Delete" asp-route-Id="@objec.Id" class="btn btn-danger mx-2"><i class="fas fa-trash-alt"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+
+
+
+            </table>
+        }
+        else
+        {
+            <p>No Driver Exists!!! </p>
+        }
+
+    </div>
+
+
+
+</div>
+

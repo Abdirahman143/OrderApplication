@@ -1,0 +1,57 @@
+﻿@model IEnumerable<OderApplication.Models.Ambulance> 
+
+<div class="container p-3">
+    <div class="row pt-3">
+        <div class="col-6 ">
+            <h2 class="col-6 text-primary">Ambulance List </h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Ambulance" asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i> Add Ambulance</a>
+        </div>
+
+        @if (Model.Count() > 0) { 
+        
+         <table class="table table-bordered table-striped " style="width:100%">
+             <thead>
+                 <tr>
+                     <th>Model</th>
+                     <th>Number plate</th>
+                     <th>Driver</th>
+                     <th></th>
+
+                 </tr>
+             </thead>
+             <tbody>
+                 @foreach(var objec in Model)
+                {
+                 <tr>
+                     <td width="25%">@objec.Model</td>
+                     <td width="">@objec.NumberPlate</td"25%">
+                     <td width="25%">@objec.Driver.Name</td"25%">
+                     <td width="25%" class="text-center">
+                         <div class="w-75 btn-group" role="group">
+                             <a asp-area="" asp-controller="Ambulance" asp-action="Edit" asp-route-Id="@objec.Id" class="btn btn-success mx-2"><i class="fas fa-edit"></i></a>
+                             <a asp-area="" asp-controller="Ambulance" asp-action="Delete" asp-route-Id="@objec.Id" class="btn btn-danger mx-2"><i class="fas fa-trash-alt"></i></a>
+                         </div>
+                     </td>
+                 </tr>
+
+                }
+
+             </tbody>
+
+
+
+         </table>
+        }
+            else
+            {
+             <p>No Ambulance Exists!!! </p>
+            }
+
+    </div>
+
+
+
+</div>
+

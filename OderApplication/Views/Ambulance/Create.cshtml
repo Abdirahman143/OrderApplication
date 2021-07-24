@@ -1,0 +1,76 @@
+﻿
+@model OderApplication.Models.ModelViews.DriverVM
+
+<form method="post" asp-action="Create">
+    <div class="borderp-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-info pl-3"> Add Ambulance</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Ambulance.Model"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Ambulance.Model" class="form-control" />
+                        <span asp-validation-for="Ambulance.Model" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Ambulance.NumberPlate"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Ambulance.NumberPlate" class="form-control" />
+                        <span asp-validation-for="Ambulance.NumberPlate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Ambulance.DriverId"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Ambulance.DriverId"  asp-items="@Model.TypeDropDown"class="form-control" >
+                            <option>---select Driver--</option>
+                        </Select>
+                        <span asp-validation-for="Ambulance.DriverId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Create" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i></a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</form>
+
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
